@@ -4,7 +4,6 @@ plugins {
     id 'java'
     id('io.ebean') version '12.3.6'
 }
-
 group = 'com.hulu'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
@@ -16,6 +15,19 @@ repositories {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'com.google.code.gson:gson:2.7'
+
+    compile('org.springframework.boot:spring-boot-starter') {
+        exclude(group: 'org.springframework.boot', module: 'spring-boot-starter-logging')
+    }
+//    compile('org.springframework.boot:spring-boot-starter-aop')
+//    compile('org.springframework.boot:spring-boot-starter-data-redis')
+//    compile('org.springframework.boot:spring-boot-starter-jdbc')
+    compile('org.springframework.boot:spring-boot-starter-validation')
+//    compile('org.springframework.boot:spring-boot-starter-amqp')
+//    compile("org.springframework.boot:spring-boot-devtools")
+//    compile("org.springframework.boot:spring-boot-starter-actuator")
+
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
@@ -25,7 +37,6 @@ dependencies {
     annotationProcessor 'io.ebean:querybean-generator:12.3.6'
     testCompile 'io.ebean:ebean-test:12.3.6'
 }
-
-test {
-    useJUnitPlatform()
-}
+//test {
+//    useJUnitPlatform()
+//}
