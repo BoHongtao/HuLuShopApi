@@ -1,2 +1,3 @@
-# HuLuShopApi
-葫芦娃的商城
+## 葫芦商场v1.0
+SpringBoot 2.3.5.RELEASE
+
