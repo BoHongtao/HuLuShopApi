@@ -2,6 +2,7 @@ plugins {
     id 'org.springframework.boot' version '2.3.5.RELEASE'
     id 'io.spring.dependency-management' version '1.0.10.RELEASE'
     id 'java'
+    id('io.ebean') version '12.3.6'
 }
 
 group = 'com.hulu'
@@ -18,6 +19,11 @@ dependencies {
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
+    compile 'io.ebean:ebean:12.3.6'
+    compile 'io.ebean:ebean-querybean:12.3.6'
+    // query bean generation
+    annotationProcessor 'io.ebean:querybean-generator:12.3.6'
+    testCompile 'io.ebean:ebean-test:12.3.6'
 }
 
 test {
