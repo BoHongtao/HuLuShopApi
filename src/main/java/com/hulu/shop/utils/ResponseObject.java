@@ -4,22 +4,21 @@ import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import io.ebeaninternal.server.lib.Str;
 import org.springframework.validation.FieldError;
 
 public class ResponseObject {
-    private String SCHEMATYPE_NULL = "null";
-    private String SCHEMATYPE_ARRAY = "array";
-    private String SCHEMATYPE_OBJECT = "object";
 
+    private final String SCHEMATYPE_NULL = "null";
+    private final String SCHEMATYPE_ARRAY = "array";
+    private final String SCHEMATYPE_OBJECT = "object";
 
     private Integer code = ResponseCode.OK;
     private String msg = "";
     private String schemaType = SCHEMATYPE_NULL;
+    private JsonElement data;
 
     private String schemaFields = "";
     private String schemaPages = "";
-    private JsonElement data;
 
     private JsonArray genSchema() {
         JsonArray schema = new JsonArray();
@@ -29,6 +28,9 @@ public class ResponseObject {
         return schema;
     }
 
+    public ResponseObject() {
+
+    }
 
     public ResponseObject(Integer code) {
         this.code = code;
@@ -55,6 +57,22 @@ public class ResponseObject {
         this.msg = msg;
     }
 
+    public String getSchemaType() {
+        return schemaType;
+    }
+
+    public void setSchemaType(String schemaType) {
+        this.schemaType = schemaType;
+    }
+
+    public String getSchemaPages() {
+        return schemaPages;
+    }
+
+    public void setSchemaPages(String schemaPages) {
+        this.schemaPages = schemaPages;
+    }
+
     public ResponseObject setArrayData(Object data) {
         Gson gson = new Gson();
         if (data == null) {
@@ -76,11 +94,10 @@ public class ResponseObject {
         return null;
     }
 
-    public ResponseObject setObjectData(Object data) {
+    public void setObjectData(Object data) {
         Gson gson = new Gson();
         this.data = gson.toJsonTree(data);
         this.schemaType = SCHEMATYPE_OBJECT;
-        return this;
     }
 
     public ResponseObject setJsonData(JsonObject data) {
@@ -133,11 +150,6 @@ public class ResponseObject {
         if (errors.hasFieldErrors()) {
             for (FieldError error : errors.getFieldErrors()) {
                 String msg = String.format("%s", error.getCode());
-//                System.out.println(gson.toJsonTree(error.getCodes()));
-//                    if (error.getCodes()) {
-//                        String[] tmp = error.getCodes();
-//                        msg = tmp[1];
-//                    }
                 return new ResponseObject(ResponseCode.INVALID_PARAMETER, msg);
             }
         }
@@ -151,6 +163,7 @@ public class ResponseObject {
         if (errors.hasFieldErrors()) {
             for (FieldError error : errors.getFieldErrors()) {
                 String msg = String.format("%s:%s", error.getField(), error.getCode());
+                return new ResponseObject(ResponseCode.INVALID_PARAMETER, msg);
             }
         }
         return new ResponseObject(ResponseCode.INTERNAL_ERROR, "服务器错误");

@@ -1,6 +1,5 @@
 package com.hulu.shop.controller.user;
 
-import com.google.gson.Gson;
 import com.hulu.shop.controller.BaseController;
 import com.hulu.shop.controller.user.req.PasswordLoginParams;
 import com.hulu.shop.controller.user.resp.LoginResponseInfo;
@@ -11,10 +10,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.slf4j.LoggerFactory;
 import com.hulu.shop.utils.ResponseObject;
-
 import javax.validation.Valid;
-import java.util.ArrayList;
-import java.util.List;
 
 @RestController
 public class UserController extends BaseController {
@@ -26,7 +22,7 @@ public class UserController extends BaseController {
     @ResponseBody
     public ResponseObject passwordLogin(@Valid PasswordLoginParams params, BindingResult errors) {
         if (errors.hasErrors()) {
-            return ResponseObject.Factory.error(errors);
+            return new ResponseObject(ResponseCode.OK,"参数错误").error(errors);
         }
         String userName = params.userName;
         String passWord = params.passWord;
