@@ -16,6 +16,7 @@ public class ResponseCode {
     public static Integer NOT_FOUND = 404; //数据不存在
 
     public static Integer INTERNAL_ERROR = 500; // 内部错误
+    public static Integer PARAMS_ERROR = 501; // 参数错误
 
     public static Integer ERROR = 1000;
 }

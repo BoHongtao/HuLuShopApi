@@ -22,7 +22,7 @@ public class UserController extends BaseController {
     @ResponseBody
     public ResponseObject passwordLogin(@Valid PasswordLoginParams params, BindingResult errors) {
         if (errors.hasErrors()) {
-            return new ResponseObject(ResponseCode.OK,"参数错误").error(errors);
+            return new ResponseObject(ResponseCode.OK).error(errors);
         }
         String userName = params.userName;
         String passWord = params.passWord;

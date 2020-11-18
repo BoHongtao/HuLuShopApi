@@ -8,13 +8,9 @@ import org.springframework.validation.FieldError;
 
 public class ResponseObject {
 
-    private final String SCHEMATYPE_NULL = "null";
-    private final String SCHEMATYPE_ARRAY = "array";
-    private final String SCHEMATYPE_OBJECT = "object";
-
     private Integer code = ResponseCode.OK;
     private String msg = "";
-    private String schemaType = SCHEMATYPE_NULL;
+    private String schemaType = ResponseSchemaType.SCHEMATYPE_NULL;
     private JsonElement data;
 
     private String schemaFields = "";
@@ -26,10 +22,6 @@ public class ResponseObject {
         schema.add(schemaFields);
         schema.add(schemaPages);
         return schema;
-    }
-
-    public ResponseObject() {
-
     }
 
     public ResponseObject(Integer code) {
@@ -80,7 +72,7 @@ public class ResponseObject {
         } else {
             this.data = gson.toJsonTree(data);
         }
-        this.schemaType = SCHEMATYPE_ARRAY;
+        this.schemaType = ResponseSchemaType.SCHEMATYPE_ARRAY;
         return this;
     }
 
@@ -97,12 +89,12 @@ public class ResponseObject {
     public void setObjectData(Object data) {
         Gson gson = new Gson();
         this.data = gson.toJsonTree(data);
-        this.schemaType = SCHEMATYPE_OBJECT;
+        this.schemaType = ResponseSchemaType.SCHEMATYPE_OBJECT;
     }
 
     public ResponseObject setJsonData(JsonObject data) {
         this.data = data;
-        this.schemaType = SCHEMATYPE_OBJECT;
+        this.schemaType = ResponseSchemaType.SCHEMATYPE_OBJECT;
         return this;
     }
 
@@ -114,7 +106,7 @@ public class ResponseObject {
         if (data != null) {
             Gson gson = new Gson();
             this.data = gson.toJsonTree(data);
-            this.schemaType = SCHEMATYPE_OBJECT;
+            this.schemaType = ResponseSchemaType.SCHEMATYPE_OBJECT;
         }
         return this;
     }
