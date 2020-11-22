@@ -12,16 +12,16 @@ import javax.validation.constraints.NotNull;
 
 public class PasswordLoginParams {
     @NotNull
-    public String userName;
+    public String phone;
     @NotNull
     public String passWord;
 
-    public String getUserName() {
-        return userName;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public String getPassWord() {

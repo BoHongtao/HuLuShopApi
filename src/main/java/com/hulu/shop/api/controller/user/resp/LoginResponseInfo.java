@@ -9,15 +9,15 @@
 package com.hulu.shop.api.controller.user.resp;
 
 public class LoginResponseInfo {
-    public String userName;
+    public String phone;
     public String token;
 
-    public String getUserName() {
-        return userName;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public String getToken() {
