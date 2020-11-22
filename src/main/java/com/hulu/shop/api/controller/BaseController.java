@@ -1,4 +1,4 @@
-package com.hulu.shop.controller;
+package com.hulu.shop.api.controller;
 
 public class BaseController {
     /**

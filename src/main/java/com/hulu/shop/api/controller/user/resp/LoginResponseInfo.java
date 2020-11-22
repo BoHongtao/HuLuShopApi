@@ -6,15 +6,11 @@
  * Vestibulum commodo. Ut rhoncus gravida arcu.
  */
 
-package com.hulu.shop.controller.user.req;
+package com.hulu.shop.api.controller.user.resp;
 
-import javax.validation.constraints.NotNull;
-
-public class PasswordLoginParams {
-    @NotNull
+public class LoginResponseInfo {
     public String userName;
-    @NotNull
-    public String passWord;
+    public String token;
 
     public String getUserName() {
         return userName;
@@ -24,12 +20,11 @@ public class PasswordLoginParams {
         this.userName = userName;
     }
 
-    public String getPassWord() {
-        return passWord;
+    public String getToken() {
+        return token;
     }
 
-    public void setPassWord(String passWord) {
-        this.passWord = passWord;
+    public void setToken(String token) {
+        this.token = token;
     }
-
 }

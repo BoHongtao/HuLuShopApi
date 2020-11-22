@@ -1,4 +1,4 @@
-package com.hulu.shop.utils;
+package com.hulu.shop.api.utils;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;

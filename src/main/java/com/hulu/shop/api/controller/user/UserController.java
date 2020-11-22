@@ -1,15 +1,15 @@
-package com.hulu.shop.controller.user;
+package com.hulu.shop.api.controller.user;
 
-import com.hulu.shop.controller.BaseController;
-import com.hulu.shop.controller.user.req.PasswordLoginParams;
-import com.hulu.shop.controller.user.resp.LoginResponseInfo;
-import com.hulu.shop.service.UserService;
-import com.hulu.shop.utils.ResponseCode;
+import com.hulu.shop.api.controller.BaseController;
+import com.hulu.shop.api.controller.user.req.PasswordLoginParams;
+import com.hulu.shop.api.controller.user.resp.LoginResponseInfo;
+import com.hulu.shop.api.service.UserService;
+import com.hulu.shop.api.utils.ResponseCode;
 import org.slf4j.Logger;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.slf4j.LoggerFactory;
-import com.hulu.shop.utils.ResponseObject;
+import com.hulu.shop.api.utils.ResponseObject;
 import javax.validation.Valid;
 
 @RestController

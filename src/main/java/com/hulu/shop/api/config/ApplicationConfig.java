@@ -6,11 +6,11 @@
  * Vestibulum commodo. Ut rhoncus gravida arcu.
  */
 
-package com.hulu.shop.config;
+package com.hulu.shop.api.config;
 
 import com.google.gson.Gson;
-import com.hulu.shop.controller.user.UserController;
-import com.hulu.shop.utils.HttpJsonMessageConverter;
+import com.hulu.shop.api.controller.user.UserController;
+import com.hulu.shop.api.utils.HttpJsonMessageConverter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Configuration;

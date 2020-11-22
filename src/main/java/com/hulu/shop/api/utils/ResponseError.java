@@ -6,7 +6,7 @@
  * Vestibulum commodo. Ut rhoncus gravida arcu.
  */
 
-package com.hulu.shop.utils;
+package com.hulu.shop.api.utils;
 
 public class ResponseError extends Exception {
     public ResponseError(Integer code, String msg) {

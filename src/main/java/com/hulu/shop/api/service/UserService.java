@@ -6,10 +6,10 @@
  * Vestibulum commodo. Ut rhoncus gravida arcu.
  */
 
-package com.hulu.shop.service;
+package com.hulu.shop.api.service;
 
-import com.hulu.shop.controller.user.UserController;
-import com.hulu.shop.controller.user.resp.LoginResponseInfo;
+import com.hulu.shop.api.controller.user.UserController;
+import com.hulu.shop.api.controller.user.resp.LoginResponseInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
