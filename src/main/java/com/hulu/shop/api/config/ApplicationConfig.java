@@ -11,6 +11,12 @@ package com.hulu.shop.api.config;
 import com.google.gson.Gson;
 import com.hulu.shop.api.controller.user.UserController;
 import com.hulu.shop.api.utils.HttpJsonMessageConverter;
+import io.ebean.EbeanServer;
+import io.ebean.EbeanServerFactory;
+import io.ebean.config.ServerConfig;
+//import io.ebean.spring.txn.SpringJdbcTransactionManager;
+
+import io.ebean.config.ServerConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Configuration;
@@ -19,6 +25,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.context.annotation.Bean;
 
+import javax.sql.DataSource;
 import java.util.List;
 
 
@@ -33,8 +40,22 @@ public class ApplicationConfig implements WebMvcConfigurer {
     public void extendMessageConverters(List<HttpMessageConverter<?>> converters) {
         converters.add(converter());
     }
+
     @Bean
     public HttpJsonMessageConverter converter() {
         return new HttpJsonMessageConverter();
+    }
+
+    @Bean
+    public EbeanServer getEbeanServer(DataSource dataSource) {
+        ServerConfig config = new ServerConfig();
+        config.setDataSource(dataSource);
+//        config.setExternalTransactionManager(new SpringJdbcTransactionManager());
+
+        config.loadFromProperties();
+        config.setDefaultServer(true);
+        config.setRegister(true);
+
+        return EbeanServerFactory.create(config);
     }
 }
