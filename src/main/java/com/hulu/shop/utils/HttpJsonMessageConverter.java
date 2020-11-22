@@ -23,15 +23,16 @@ import java.util.List;
 
 public class HttpJsonMessageConverter extends AbstractHttpMessageConverter<Object> {
     private Gson gson = new Gson();
-    public final  static  Charset DEFAULT_CHARSET = Charset.forName("UTF-8");
+    public final static Charset DEFAULT_CHARSET = Charset.forName("UTF-8");
 
     public HttpJsonMessageConverter() {
-        super(new MediaType("application", "json", Charset.forName("UTF-8")));
+//        new MediaType("application", "json", DEFAULT_CHARSET);
+        super(new MediaType("application", "json", DEFAULT_CHARSET), new MediaType("application", "*+json", DEFAULT_CHARSET));
     }
 
     @Override
     protected boolean supports(Class clazz) {
-        return false;
+        return true;
     }
 
     @Override
