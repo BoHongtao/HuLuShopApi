@@ -14,11 +14,9 @@ import com.hulu.shop.api.controller.user.resp.LoginResponseInfo;
 import com.hulu.shop.api.utils.ResponseCode;
 import com.hulu.shop.common.domain.User;
 import com.hulu.shop.common.domain.query.QUser;
-import com.hulu.shop.utils.ServiceException;
+import com.hulu.shop.common.utils.ServiceException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.util.List;
 
 public class UserService {
     protected static final Logger logger = LoggerFactory.getLogger(UserController.class);

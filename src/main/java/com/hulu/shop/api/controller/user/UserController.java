@@ -5,7 +5,7 @@ import com.hulu.shop.api.controller.user.req.PasswordLoginParams;
 import com.hulu.shop.api.controller.user.resp.LoginResponseInfo;
 import com.hulu.shop.api.service.UserService;
 import com.hulu.shop.api.utils.ResponseCode;
-import com.hulu.shop.utils.ServiceException;
+import com.hulu.shop.common.utils.ServiceException;
 import org.slf4j.Logger;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
