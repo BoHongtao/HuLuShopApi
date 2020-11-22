@@ -19,7 +19,6 @@ import org.springframework.http.converter.HttpMessageNotWritableException;
 
 import java.io.*;
 import java.nio.charset.Charset;
-import java.util.List;
 
 public class HttpJsonMessageConverter extends AbstractHttpMessageConverter<Object> {
     private Gson gson = new Gson();
