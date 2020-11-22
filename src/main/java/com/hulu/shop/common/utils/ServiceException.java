@@ -6,7 +6,7 @@
  * Vestibulum commodo. Ut rhoncus gravida arcu.
  */
 
-package com.hulu.shop.utils;
+package com.hulu.shop.common.utils;
 
 import com.hulu.shop.api.controller.user.UserController;
 import org.slf4j.Logger;
