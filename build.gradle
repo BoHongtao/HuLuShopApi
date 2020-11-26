@@ -29,6 +29,11 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-actuator")
     runtime("mysql:mysql-connector-java")
 
+    implementation('org.redisson:redisson:3.3.1')
+    implementation ('redis.clients:jedis:2.9.1')
+    implementation('com.squareup.okhttp3:okhttp:3.5.0')
+
+
     compile 'org.codehaus.jackson:jackson-mapper-asl:1+'
     compile 'org.codehaus.jackson:jackson-core-asl:1+'
 
