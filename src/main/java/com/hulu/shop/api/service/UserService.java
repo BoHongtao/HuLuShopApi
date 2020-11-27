@@ -34,9 +34,12 @@ public class UserService {
         if (user == null) {
             throw new ServiceException(ResponseCode.ERROR, "user not find");
         }
-        logger.info("---search user data:" + new Gson().toJsonTree(user));
-        if (!passWord.equals(user.password)) {
-            throw new ServiceException(ResponseCode.ERROR, "username or password wrong");
+        if (user.status == userModel.STATUS_LOCKED) {
+            throw new ServiceException(ResponseCode.ERROR, "user account was loacked");
+        }
+        String cryptPassword = Crypt.xxteaEncode(passWord);
+        if (!user.password.equals(cryptPassword)) {
+            throw new ServiceException(ResponseCode.ERROR, "phone or password wrong");
         }
         LoginResponseInfo retObj = new LoginResponseInfo();
         retObj.phone = phone;
@@ -55,7 +58,7 @@ public class UserService {
         user.loginid = user.phone = user.name = phone;
         user.regtime = Timestamp.from(Instant.now());
         user.status = userModel.STATUS_ACTIVE;
-        user.password = Crypt.xxteaDecode(passWord);
+        user.password = Crypt.xxteaEncode(passWord);
         user.regchannel = channel;
         user.save();
         HashMap<String, String> signInfo = new HashMap<>();
